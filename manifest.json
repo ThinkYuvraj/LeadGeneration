@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Lead Capture - Local",
+  "version": "0.1.0",
+  "description": "User-controlled capture from permitted pages",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "downloads"
+  ],
+  "action": {
+    "default_popup": "src/ui/popup.html",
+    "default_title": "Lead Capture - Local"
+  },
+  "background": {
+    "service_worker": "src/background/service-worker.js",
+    "type": "module"
+  },
+  "options_page": "src/ui/options.html",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

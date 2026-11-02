@@ -1,0 +1,18 @@
+{
+  "name": "lead-capture-local",
+  "version": "0.1.0",
+  "description": "User-controlled local-first lead capture browser extension",
+  "type": "module",
+  "scripts": {
+    "test": "node tests/run-tests.js"
+  },
+  "keywords": [
+    "browser-extension",
+    "manifest-v3",
+    "lead-generation",
+    "privacy-first"
+  ],
+  "author": "",
+  "license": "MIT"
+}
+

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lead Review Manager - Local Capture</title>
+  <link rel="stylesheet" href="review.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-title">
+        <div class="logo-icon">LC</div>
+        <div>
+          <h1>Lead Review Manager</h1>
+          <p style="font-size: 12px; color: var(--text-muted);">Curate, edit, and export your captured leads locally</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="btnOptions" class="btn btn-secondary">Settings</button>
+        <button id="btnClearAll" class="btn btn-danger">Clear All Data</button>
+      </div>
+    </header>
+
+    <!-- Metrics Ribbon -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Total Leads Stored</div>
+        <div id="statTotal" class="stat-value">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Pending Review</div>
+        <div id="statPending" class="stat-value" style="color: var(--primary);">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Approved</div>
+        <div id="statApproved" class="stat-value" style="color: var(--success);">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Rejected</div>
+        <div id="statRejected" class="stat-value" style="color: var(--danger);">0</div>
+      </div>
+    </div>
+
+    <!-- Controls & Toolbar -->
+    <div class="toolbar">
+      <div class="search-filter-group">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search business, email, phone, or URL...">
+        <select id="statusFilter" class="select-filter">
+          <option value="all">All Statuses</option>
+          <option value="pending">Pending</option>
+          <option value="approved">Approved</option>
+          <option value="rejected">Rejected</option>
+        </select>
+        <select id="confidenceFilter" class="select-filter">
+          <option value="all">All Confidences</option>
+          <option value="high">High Confidence</option>
+          <option value="medium">Medium Confidence</option>
+          <option value="low">Low Confidence</option>
+        </select>
+      </div>
+
+      <div class="export-group">
+        <select id="exportScope" class="select-filter">
+          <option value="selected">Selected Rows Only</option>
+          <option value="filtered">All Filtered Rows</option>
+        </select>
+        <button id="btnExportCsv" class="btn btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Export CSV</span>
+        </button>
+        <button id="btnExportTxt" class="btn btn-secondary">
+          <span>Export TXT</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Bulk Action Strip -->
+    <div style="display: flex; gap: 8px; margin-bottom: 12px; align-items: center;">
+      <span id="selectedCountLabel" style="font-size: 13px; color: var(--text-muted); margin-right: 8px;">0 selected</span>
+      <button id="btnBulkApprove" class="btn btn-secondary" style="color: var(--success);" disabled>Approve</button>
+      <button id="btnBulkReject" class="btn btn-secondary" style="color: var(--warning);" disabled>Reject</button>
+      <button id="btnBulkDelete" class="btn btn-danger" disabled>Delete</button>
+    </div>
+
+    <!-- Lead Data Table -->
+    <div class="table-card">
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 40px;"><input type="checkbox" id="selectAllCheckbox"></th>
+            <th>Business / Org</th>
+            <th>Contact Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Confidence</th>
+            <th>Status</th>
+            <th>Source Page</th>
+            <th>Captured</th>
+            <th style="width: 60px;">Action</th>
+          </tr>
+        </thead>
+        <tbody id="leadsTableBody">
+          <!-- Rows rendered safely via review.js -->
+        </tbody>
+      </table>
+
+      <div id="emptyState" class="empty-state" style="display: none;">
+        <div class="empty-title">No leads match your filter</div>
+        <p>Scan web pages using the extension popup to extract contact information.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script type="module" src="review.js"></script>
+</body>
+</html>
+

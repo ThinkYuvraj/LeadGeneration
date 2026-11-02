@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Security Audit Fixture - Formula Injection</title>
+</head>
+<body>
+  <h1>=1+1 Business Corp</h1>
+  <p>Dangerous names: @SUM(1,2), +cmd|'/c calc'!A0, -2+3</p>
+  <p>Injected email: <a href="mailto:=calc@evil.com">=calc@evil.com</a></p>
+  <p>Injected phone: <a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+</body>
+</html>
+

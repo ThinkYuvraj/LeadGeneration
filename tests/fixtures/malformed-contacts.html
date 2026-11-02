@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Buggy Portal - Edge Cases</title>
+</head>
+<body>
+  <h1>Malformed Contact Test Page</h1>
+  <p>Broken mailto: <a href="mailto:not-an-email">invalid mail link</a></p>
+  <p>Query param email: <a href="mailto:real.person@company.org?subject=Inquiry&body=Hello">real.person@company.org</a></p>
+  <p>Dummy placeholder: user@example.com, test@domain.com, demo@test.org</p>
+  <p>Image asset looking like email: banner_logo.png@2x.jpg</p>
+  <p>Invalid phone: <a href="tel:abc-def-ghij">Call letters</a></p>
+  <p>Date formatted string (should not extract as phone): 2026-10-30</p>
+  <p>Valid phone: +1 (212) 555-8901</p>
+</body>
+</html>
+
